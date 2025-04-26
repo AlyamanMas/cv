@@ -1,5 +1,3 @@
-// TODO: add paper
-
 #let info = (
   personal: (
     name: "Alyaman Massarani",
@@ -52,10 +50,9 @@
       start: "Spring 2024",
       end: "Fall 2024",
       points: (
-        "Organized an event with a professor to introduce AUC students to Google Summer of Code (GSoC), its benefits, how to apply...",
-        "Led logistics, managed catering, coordinated marketing.",
-        "More than 60 students attended the session.",
-        "Helped with organizing TeqFest, an annual event at AUC organized collaboratively by all technology-related clubs.",
+        "Organized an event with a professor to introduce AUC students to Google Summer of Code (GSoC), covering its benefits and application process with tips on how to get accepted.",
+        "Led logistics: managed catering, marketing coordination, and session planning with 60+ students attending.",
+        "Played a keyrole in organizing TeqFest, an annual event at AUC organized collaboratively by all technology-related clubs.",
       )
     ),
     
@@ -64,7 +61,6 @@
       location: "Tripoli, Lebanon",
       company: "Intelligile",
       start: "Summer 2022",
-      end: "Summer 2022",
       points: (
         "Lead the team and facilitated communication and work amongst members",
         "Worked on implementing a cross platform graphics API with C++ that binds to native APIs depending on the platform (OpenGL/Vulkan for Linux, DirectX for Windows, Metal for macOS)"
@@ -73,6 +69,19 @@
   ),
   
   proj: (
+    paper: (
+      name: "Smart Grid Security Evaluation Research Paper",
+      role: "Designer and Developer",
+      start: "Fall 2024",
+      // TODO: add link when paper is published
+      url: (type: "web", url: "satcconf.com/docs/satc2025_program.pdf?v=5.0"),
+      type: ("research", "ai", "security"),
+      points: (
+        "Published a paper in the SaTC conference showing a potential vulnerability in smart electricity grids that could go undetected and cause equipment degradation and blackouts.",
+        "Demonstrated how an attacker can manipulate transformer sensor data, fooling utility companies' machine learning models into predicting normal-looking values that do not correspond to reality."
+      )
+    ),
+    
     space: (
       name: "Space: A Social Media Platform with Pixel Art as the Mode of Expression ",
       role: "Designer and Developer",
@@ -82,9 +91,9 @@
       type: ("web"),
       points: (
         "Designed and fully implemented a social media platform where users can interact by both placing pixels on a screen to create art (similar to Reddit's r/place), and by messaging each other.",
-        "Used WebSockets for real time communication between server and clients for updating the canvas.",
-        "Designed the front end and back end using NEXT.js and mui.",
-        "Used Firebase for authentication.",
+        "Used WebSockets for real time communication between server and clients for updating the canvas, enabling high performance.",
+        "Designed the front end and back end using NEXT.js and mui. Hosted using Hetzner's cloud computing platform.",
+        "Used Firebase for authentication, ensuring strong cybersecurity standards and user-friendly authentication process.",
       )
     ),
   
@@ -95,8 +104,8 @@
       url: (type: "github", url: "github.com/AlyamanMas/sniffnet",),
       type: ("os", "software", "networking"),
       points: (
-        "Designed and implemented egress throttling capabilities into our fork of sniffnet. The throttling is applied to a certain PID, port, or network interface.",
-        "Helped integrate said functionality into the application by adding the relevant UI elements in the appropriate positions."
+        "Integrated egress throttling capabilities into our fork of sniffnet, enabling control of connections per PID, port, or network interface.",
+        "Enhanced the user experience by integrating the relevant UI components into the application to allow for seamless functionality."
       )
     ),
   
@@ -107,9 +116,8 @@
       url: (type: "github", url: "github.com/AlyamanMas/ComputerArchitecture-Project2-TomasuloSimulator"),
       type: ("software", "education"),
       points: (
-        "Structured the project and wrote all declarations using modern C++ structures like variants and optionals.",
-        "Helped implement the functionality and tested the project.",
-        "Wrote a fault-tolerant parser for the custom assembly language used for testing the project."
+        "Structured the project around modern C++ structures (e.g. variants and optionals), allowing for safe and robust modelling of the program..",
+        "Implemented a fault-tolerant parser for the custom assembly language used for testing the project."
       )
     ),
     
@@ -142,13 +150,15 @@
     ),
     
     xv6: (
-      name: "New Features Added to the XV6 Operating System",
+      name: "Extending the Unix-like XV6 Operating System with New Programs and System Calls",
       role: "Designer and Developer",
       start: "Spring 2024",
       url: (type: "github", url: "github.com/AlyamanMas/xv6-public"),
       type: ("os", "software"),
       points: (
-        "Modified the XV6 OS to add new programs, new system calls, prototyping different process scheduling algorithms...",
+        [Added the `gettime()` system call which reads the hardware CMOS RTC clock and returns it.],
+        [Added the `lseek()` system call which changes the position at which the cursor currently is in an open file.],
+        [Added `save`, a program that saves text into a file given its path.],
       )
     ),
     
@@ -164,13 +174,14 @@
     ),
     
     riscv_simulator: (
-      name: "A RISC-V CPU Simulator Using C++20",
+      name: "A RISC-V CPU Simulator Using Modern C++",
       role: "Designer and Developer",
       start: "Fall 2023",
       url: (type: "github", url: "github.com/AlyamanMas/riscv-simulator"),
       type: ("software", "hardware"),
       points: (
-        "Designed, implemented, and tested a program capable of emulating RV32I instructions of the RISC-V standard",
+        "Engineered a program capable of emulating RV32I instructions of the RISC-V standard using modern C++.",
+        "Conducted rigorous testing and to ensure operational accuracy and system reliability."
       )
     ),
     
@@ -200,11 +211,11 @@
     handlebars_rust: (
       name: "Command Line Handlebars-Based Templating Program in Rust",
       role: "Designer and Developer",
-      start: "2022",
+      start: "July 2022",
       url: (type: "github", url: "github.com/AlyamanMas/hbs-rs"),
       type: ("software", "tools"),
       points: (
-        "Used Rust to implement a program that enables complex templating capabilities from the command line.",
+        "Engineered a program with Rust that enables complex dynamic templating capabilities from the command line.",
       )
     ),
     
@@ -225,12 +236,12 @@
   ),
   
   skills: (
-    Languages: ("C++ and C", "Rust", "JavaScript/TypeScript", "Python", "SQL"),
-    Frameworks: ("NEXT.js", "numpy/pandas/matplotlib", "LLM API integration (OpenAI, etc.)"),
-    Systems: ("Nix/NixOS", "Bash", "Verilog"),
-    Tools: ("Git", "CMake", "LaTeX", "Typst"),
-    Programs: ("Excel/Sheets", "Word/Docs", "PowerPoint/Canva"),
-    Hosting: ("Linux", "Cloud", "DNS", "Hetzner", "Vultr"),
+    "Programming Languages": ([*C++* and C], [*Rust*], [*JavaScript/TypeScript*], [*Python*], "SQL"),
+    Frameworks: ("NEXT.js", [*numpy/pandas*\/matplotlib], "LLM API integration (OpenAI, etc.)"),
+    Systems: ([*Nix/NixOS*], [*Bash*], "Verilog"),
+    Tools: ([*Git*], "CMake", "LaTeX", "Typst"),
+    Programs: ([Excel\/*Sheets*], [Word\/*Docs*], "PowerPoint/Canva"),
+    Cloud: ([*Linux*], "DNS", [*Hetzner*], "Vultr"),
     "Spoken Languages": ("English (Fluent)", "Arabic (Native)")
   )
 )

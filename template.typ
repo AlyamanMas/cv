@@ -1,21 +1,25 @@
 #import "info.typ": *
 
-#let _element_sep = -0.25em
+#let _element_sep = 0em
 
-#let icon(unicode) = {
-  text(font: "JetBrainsMono NF", size: 1.5em, baseline: 0.125em, unicode)
-  h(0.9em)
+#let icon(unicode, size: 1.5em) = {
+  text(font: "JetBrainsMono NF", size: size, baseline: 0.125em, unicode)
 }
 
   
-#let bullets(x) = {
+#let bullets(x, removed: none) = {
+  if removed != none {
+    for i in removed {
+      _ = x.remove(i)
+    }
+  }
   list(
     ..x.map(x => list.item(x))
   )
 }
 
 
-#let edu(sec) = {
+#let edu(sec, element_sep: _element_sep, removed: none) = {
   text(
     weight: "bold",
     sec.name + " (" + sec.shortname + ")"
@@ -29,13 +33,13 @@
   text(style: "italic", sec.start + if sec.keys().contains("end") {[ --- ] + sec.end})
   linebreak()
 
-  if sec.keys().contains("points") { bullets(sec.points) }
+  if sec.keys().contains("points") { bullets(sec.points, removed: removed) }
 
-  v(_element_sep)
+  v(element_sep)
 } 
 
 
-#let work(sec) = {
+#let work(sec, element_sep: _element_sep, removed: none) = {
   text(
     weight: "bold",
     sec.title
@@ -49,18 +53,18 @@
   text(style: "italic", sec.start + if sec.keys().contains("end") {[ --- ] + sec.end})
   linebreak()
 
-  if sec.keys().contains("points") { bullets(sec.points) }
+  if sec.keys().contains("points") { bullets(sec.points, removed: removed) }
 
-  v(_element_sep)
+  v(element_sep)
 }
 
 
-#let proj(sec) = {
+#let proj(sec, icons: true, element_sep: _element_sep, removed: none) = {
   let proj_link(url) = { link("https://"+url.url, {
-    if url.type == "github" {
-      icon("󰊤") + text(weight: 300, url.url.replace("github.com/",""))
+    "   " + if url.type == "github" {
+      icon("󰊤") //+ text(weight: 300, url.url.replace("github.com/",""))
     } else {
-      icon("󰖟") + text(url.url, weight: 300)
+      icon("󰖟") //+ text(url.url, weight: 300)
     }
   })}
 
@@ -68,21 +72,20 @@
     weight: "bold",
     sec.name
   )
+  if sec.keys().contains("url") and icons { proj_link(sec.url) }
   h(1fr)
-  if sec.keys().contains("url") { proj_link(sec.url) }
-  linebreak()
 
   text(style: "italic", sec.start + if sec.keys().contains("end") {[ --- ] + sec.end})
 
-  if sec.keys().contains("points") { bullets(sec.points) }
+  if sec.keys().contains("points") { bullets(sec.points, removed: removed) }
 
-  v(_element_sep)
+  v(element_sep)
 }
 
 
 #let skills_sec(skills_dict) = {
   let list_item_format(x) = {
-    text(weight: "bold", x.at(0) + ": ")
+    text(weight: "bold", x.at(0) + ":    ")
     text(x.at(1).join(", "))
   }
   
@@ -93,7 +96,7 @@
 }
 
 
-#let cv_template(info: info.personal) = body => {
+#let cv_template(info: info.personal, element_sep: _element_sep) = body => {
   let mainfont = "Inter"
   let secondfont = "Source Serif Pro"
   set text(font: secondfont, size: 10pt)
@@ -124,21 +127,21 @@
     upper(info.name)
   ))
 
-  v(-1em)
+  v(-1.5em)
   
-  link("mailto:" + info.email, {icon("󰇮"); info.email})
+  link("mailto:" + info.email, {icon("󰇮") + "    " + info.email})
 
   h(1fr)
 
-  link("https://"+info.github, {icon("󰊤");info.github.replace("github.com/","")})
+  link("https://"+info.github, {icon("󰊤") + "    " + info.github.replace("github.com/","")})
 
   h(1fr)
 
-  link("https://"+info.linkedin, {icon("󰌻");info.linkedin.replace("linkedin.com/in/","").replace("/","")})
+  link("https://"+info.linkedin, {icon("󰌻") + "    " + info.linkedin.replace("linkedin.com/in/","").replace("/","")})
   
   h(1fr)
   
-  link("tel:"+info.phone, {icon("󰏲");info.phone})
+  link("tel:"+info.phone, {icon("󰏲") + "    " + info.phone})
   
   body
 }
