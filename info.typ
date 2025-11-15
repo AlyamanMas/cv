@@ -16,7 +16,7 @@
       end: "Present",
       degree: "B.S. in Computer Science",
       location: "Cairo, Egypt",
-      gpa: 3.817 
+      gpa: 3.806 
     ),
     
     cofc: (
@@ -69,12 +69,36 @@
   ),
   
   proj: (
+    etl_detection: (
+      name: "Zero-Day Electricity Theft Detection with Prototype and Ensemble Learning",
+      role: "Researcher",
+      start: "Fall 2024",
+      url: (type: "web", url: "https://www.mdpi.com/1424-8220/25/13/4111"),
+      type: ("research", "ai", "security"),
+      points: (
+        "Published a paper in MDPI highlighting the potential of prototype learning and ensemble learning in decreasing training and execution time while maintaining high metrics.",
+        "Reduced training time by 76.1% compared to base models while also increasing accuracy from 81.52% to 88.45% and reducing false alarm rate from 34.25% to 13.85%."
+      )
+    ),
+
+    // TODO: implement
+    dynamic_etl: (
+      // name: "Zero-Day Electricity Theft Detection with Prototype and Ensemble Learning",
+      // role: "Researcher",
+      // start: "Fall 2024",
+      // url: (type: "web", url: "https://www.mdpi.com/1424-8220/25/13/4111"),
+      // type: ("research", "ai", "security"),
+      // points: (
+      //   "Published a paper in MDPI highlighting the potential of prototype learning and ensemble learning in decreasing training and execution time while maintaining high metrics.",
+      //   "Reduced training time by 76.1% compared to base models while also increasing accuracy from 81.52% to 88.45% and reducing false alarm rate from 34.25% to 13.85%."
+      // )
+    ),
+
     paper: (
       name: "Smart Grid Security Evaluation Research Paper",
-      role: "Designer and Developer",
+      role: "Researcher",
       start: "Fall 2024",
-      // TODO: add link when paper is published
-      url: (type: "web", url: "satcconf.com/docs/satc2025_program.pdf?v=5.0"),
+      url: (type: "web", url: "https://ieeexplore.ieee.org/document/11136891/"),
       type: ("research", "ai", "security"),
       points: (
         "Published a paper in the SaTC conference showing a potential vulnerability in smart electricity grids that could go undetected and cause equipment degradation and blackouts.",
@@ -237,8 +261,8 @@
   
   skills: (
     "Programming Languages": ([*C++* and C], [*Rust*], [*JavaScript/TypeScript*], [*Python*], "SQL"),
-    Frameworks: ("NEXT.js", [*numpy/pandas*\/matplotlib], "LLM API integration (OpenAI, etc.)"),
-    Systems: ([*Nix/NixOS*], [*Bash*], "Verilog"),
+    Frameworks: ("Svelte/SvelteKit","NEXT.js", [*numpy/pandas*\/matplotlib], [*LLM API integration (OpenAI, etc.)*]),
+    Systems: ([*Nix/NixOS*], [*Bash*], "Nushell", "Verilog"),
     Tools: ([*Git*], "CMake", "LaTeX", "Typst"),
     Programs: ([Excel\/*Sheets*], [Word\/*Docs*], "PowerPoint/Canva"),
     Cloud: ([*Linux*], "DNS", [*Hetzner*], "Vultr"),

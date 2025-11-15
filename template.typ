@@ -98,7 +98,7 @@
 
 #let cv_template(info: info.personal, element_sep: _element_sep) = body => {
   let mainfont = "Inter"
-  let secondfont = "Source Serif Pro"
+  let secondfont = "Source Serif 4"
   set text(font: secondfont, size: 10pt)
 
   set page(
