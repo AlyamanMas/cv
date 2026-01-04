@@ -9,17 +9,47 @@
   x
 }
 
+= Publications
+
+#bibliography("mdpi.bib", style: "apa", full: true, title: none)
+
+= Research Experience
+
+#research_exp(info.research_experience.cofc)
+
 = Work Experience
 
 #for x in info.work.values().map(x => work(x)) {
   x
 }
 
-= Projects
+= Honors & Academic Service
 
-#for x in info.proj.values().map(x => proj(x)) {
-  x
-}
+#stack(
+  dir: ttb,
+  spacing: 1em,
+  ..info.awards.values().map(x => award(x))
+)
+
+= Projects
+== Systems & Utilities
+#proj(info.proj.personal_server)
+#proj(info.proj.etl_pipeline)
+#proj(info.proj.sniffnet)
+#proj(info.proj.xv6)
+#proj(info.proj.treesitter_riscv)
+#proj(info.proj.handlebars_rust)
+
+== Hardware
+#proj(info.proj.tomasulo)
+#proj(info.proj.riscv_fpga)
+#proj(info.proj.riscv_simulator)
+#proj(info.proj.memory_hierarchy)
+#proj(info.proj.multiplier_fpga)
+
+== Websites and Web Apps
+#proj(info.proj.beit_beitak)
+#proj(info.proj.space)
 
 = Skills
 

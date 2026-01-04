@@ -6,7 +6,7 @@
   text(font: "JetBrainsMono NF", size: size, baseline: 0.125em, unicode)
 }
 
-  
+
 #let bullets(x, removed: none) = {
   if removed != none {
     for i in removed {
@@ -22,7 +22,7 @@
 #let edu(sec, element_sep: _element_sep, removed: none) = {
   text(
     weight: "bold",
-    sec.name + " (" + sec.shortname + ")"
+    sec.name
   )
   h(1fr)
   sec.location
@@ -36,7 +36,7 @@
   if sec.keys().contains("points") { bullets(sec.points, removed: removed) }
 
   v(element_sep)
-} 
+}
 
 
 #let work(sec, element_sep: _element_sep, removed: none) = {
@@ -78,8 +78,6 @@
   text(style: "italic", sec.start + if sec.keys().contains("end") {[ --- ] + sec.end})
 
   if sec.keys().contains("points") { bullets(sec.points, removed: removed) }
-
-  v(element_sep)
 }
 
 
@@ -88,11 +86,47 @@
     text(weight: "bold", x.at(0) + ":    ")
     text(x.at(1).join(", "))
   }
-  
+
   let skills_pairs = skills_dict.pairs() 
   list(
     ..skills_pairs.map(x => list_item_format(x))
   )
+}
+
+
+#let award(x) = {
+  text(
+    x.name + ", " + x.location
+  )
+  h(1fr)
+  text(
+    style: "italic",
+    x.date
+  )
+}
+
+
+#let research_exp(sec) = {
+  place(
+    end,
+    {
+      sec.location
+      linebreak()
+
+      text(style: "italic", sec.start + if sec.keys().contains("end") {[ --- ] + sec.end})
+    }
+  )
+  text(
+    weight: "bold",
+    sec.name
+  )
+  linebreak()
+  text(
+    style: "italic",
+    if sec.advisors.len() > 1 { "Advisors: " + sec.advisors.join(", ") } else { "Advisor: " + sec.advisors.at(0) }
+  )
+
+  if sec.keys().contains("points") { bullets(sec.points, removed: none) }
 }
 
 
@@ -105,17 +139,26 @@
     margin: 3em,
     paper: "a4"
   )
-  
+
+  // show bibliography: none
+
   show heading: h => {
-    text(
-      font: mainfont,
-      weight: "semibold",
-      smallcaps(h.body)
-    )
-    set block(above: 0.5em)
-    line(
-      length: 100%,
-      stroke: 1pt,
+    block(
+      breakable: false,
+      above: 0fr,
+      {
+        text(
+          font: mainfont,
+          weight: "semibold",
+          smallcaps(h.body),
+          size: if h.level == 1 { 1em } else { 0.8em },
+          baseline: 1em,
+        )
+        line(
+          length: 100%,
+          stroke: if h.level == 1 { 1pt } else { 0.5pt },
+        )
+      }
     )
   }
 
@@ -123,25 +166,20 @@
     font: mainfont,
     weight: "bold",
     size: 2em,
-    
+
     upper(info.name)
   ))
 
   v(-1.5em)
-  
-  link("mailto:" + info.email, {icon("󰇮") + "    " + info.email})
 
-  h(1fr)
+  table(
+    columns: (2fr, 1fr),
+    stroke: none,
+    icon("") + "    " + info.location,
+    link("https://"+info.github, {icon("󰊤") + "    " + info.github.replace("github.com/","")}),
+    link("mailto:" + info.email, icon("󰇮") + "    " + info.email),
+    link("tel:"+info.phone, {icon("󰏲") + "    " + info.phone}),
+  )
 
-  link("https://"+info.github, {icon("󰊤") + "    " + info.github.replace("github.com/","")})
-
-  h(1fr)
-
-  link("https://"+info.linkedin, {icon("󰌻") + "    " + info.linkedin.replace("linkedin.com/in/","").replace("/","")})
-  
-  h(1fr)
-  
-  link("tel:"+info.phone, {icon("󰏲") + "    " + info.phone})
-  
   body
 }
