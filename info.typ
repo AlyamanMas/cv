@@ -259,6 +259,7 @@
         "Hosted Open WebUI, a frontend to LLMs that allows the user to interface with any LLM over an OpenAI-compatible API.",
         "Hosted and configured Bitwarden, the open source password manager.",
         "Hosted and configured Forgejo, the open source Git service for private hosting and management of code.",
+        "Hosted a matrix server for secure and private instant messaging with friends.",
         "Configured Cloudflare DNS reverse proxy with nginx for bot protection and secure access to all hosted HTTPS services.",
         "Used git-crypt to securely push secrets to the git repository with encryption and on-device decryption with GPG.",
       )
