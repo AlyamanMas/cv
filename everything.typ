@@ -1,3 +1,5 @@
+// TODO: add page number (and perhaps name?) to footer
+// TODO: verify all links work
 #import "info.typ": *
 #import "template.typ": *
 
@@ -17,12 +19,6 @@
 
 #research_exp(info.research_experience.cofc)
 
-= Work Experience
-
-#for x in info.work.values().map(x => work(x)) {
-  x
-}
-
 = Honors & Academic Service
 
 #stack(
@@ -30,6 +26,12 @@
   spacing: 1em,
   ..info.awards.values().map(x => award(x))
 )
+
+= Work Experience
+
+#for x in info.work.values().map(x => work(x)) {
+  x
+}
 
 = Projects
 == Systems & Utilities
@@ -40,6 +42,7 @@
 #proj(info.proj.treesitter_riscv)
 #proj(info.proj.handlebars_rust)
 
+#pagebreak()
 == Hardware
 #proj(info.proj.tomasulo)
 #proj(info.proj.riscv_fpga)
