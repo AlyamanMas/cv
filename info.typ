@@ -22,6 +22,7 @@
       name: "College of Charleston (CofC)",
       start: "Fall 2024",
       degree: "Exchange Semester",
+      gpa: 3.75,
       location: "Charleston, SC, USA",
     ),
 
