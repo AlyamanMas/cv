@@ -45,6 +45,7 @@
         "Developed a RAG system for the AUC library that allows students to prompt an LLM and get relevant content that references academic sources.",
         "Lead the team and divided tasks among members.",
         "Communicated with the supervisor constantly to showcase progress and get feedback.",
+        "Deployed the service to a VPS provisioned on Hetzner with SSL/HTTPS and Cloudflare DNS reverse proxy.",
       )
     ),
 
@@ -81,7 +82,7 @@
       start: "Summer 2022",
       points: (
         "Lead the team and facilitated communication and work amongst members",
-        "Worked on implementing a cross platform graphics API with C++ that binds to native APIs depending on the platform (OpenGL/Vulkan for Linux, DirectX for Windows, Metal for macOS)"
+        "Worked on implementing a cross platform graphics API with C++ that binds to native APIs depending on the platform (OpenGL/Vulkan for Linux, DirectX for Windows, Metal for macOS)",
       )
     ),
   ),
@@ -152,7 +153,8 @@
       url: (type: "github", url: "github.com/AlyamanMas/ComputerArchitecture-Project2-TomasuloSimulator"),
       type: ("software", "education"),
       points: (
-        "Structured the project around modern C++ structures (e.g. variants and optionals), allowing for safe and robust modelling of the program..",
+        "Developed a simulator for Tomasulo's algorithm, which allows for out of order execution of instructions in CPUs.",
+        "Used modern C++ features like variants and optionals to guarantee safety and high coding standards.",
         "Implemented a fault-tolerant parser for the custom assembly language used for testing the project."
       )
     ),
@@ -190,7 +192,7 @@
       url: (type: "github", url: "github.com/AlyamanMas/tree-sitter-riscv-asm"),
       type: ("software", "tools"),
       points: (
-        "Designed a fast, accurate, and fault tolerant lexer and parser for RISC-V assembly that supports querying using Tree-sitter.",
+        "Designed a fast, accurate, and fault tolerant lexer and parser for RISC-V assembly that supports querying using tree-sitter.",
       )
     ),
 
@@ -221,7 +223,7 @@
       name: "8x8 Signed Sequential Multiplier on FPGA",
       role: "Designer and Developer",
       start: "Fall 2023",
-      url: (type: "web", url: "replit.com/@alyamanmas1/DD1-Project22"),
+      // url: (type: "web", url: "replit.com/@alyamanmas1/DD1-Project22"),
       type: ("hardware", "fpga"),
       points: (
         "Designed, implemented, and tested a sequential multiplier capable of multiplying two signed 8-bit numbers and displaying the result on the seven-segment display of the FPGA, with the ability to scroll digits on the display.",
